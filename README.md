@@ -9,7 +9,11 @@ No information stored here is definitive, as knowledge is built over time and th
 
 ### Feats Applied
 
-- None
+- API
+- API fetching
+- useState
+- useEffect
+
 
 ## Information
 
