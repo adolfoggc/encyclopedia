@@ -9,7 +9,6 @@ export default function Home() {
   const [apiData, setApiData] = useState <knowledgesType | null>(null)
 
   useEffect(() =>  {
-    console.log('Fetching...');
     dataFetcher('http://localhost:8080/api')
       .then(data => setApiData(data)
       )

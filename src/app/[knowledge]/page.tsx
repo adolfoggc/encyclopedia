@@ -15,7 +15,6 @@ export default function Knowledge() {
       .then(
         data => {
           const knowledgeName = getKnowledgeNameFromPath()
-          console.log('knowledgeName ->', knowledgeName)
           setKnowledgeData(findKnowledgeByName(knowledgeName, data))
         }
     )
@@ -25,9 +24,6 @@ export default function Knowledge() {
 
   function findKnowledgeByName(name: string, data: knowledgesType) {
     if (!data) return null;
-    console.log(data)
-    console.log(name)
-
     const knowledge = data.find(knowledge => knowledge.name === name)
     return knowledge.topics || null;
   }
