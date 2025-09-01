@@ -20,9 +20,9 @@ const knowledges = [
   }
 ];
 
-export type knowledgesType = knowledgeType[];
+export type knowledgesType = knowledgeDataType[];
 
-export type knowledgeType = {
+export type knowledgeDataType = {
   name: string,
   topics: topicType[]
 }
