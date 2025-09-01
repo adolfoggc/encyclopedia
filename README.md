@@ -13,6 +13,7 @@ No information stored here is definitive, as knowledge is built over time and th
 - API fetching
 - useState
 - useEffect
+- Dynamic Routes
 
 
 ## Information
@@ -20,6 +21,7 @@ No information stored here is definitive, as knowledge is built over time and th
 - react: 19.1.0
 - next: 15.5.2
 - Runs on port 8080 when started using **yarn dev**
+- App Router
 
 ## Knowledges
 
