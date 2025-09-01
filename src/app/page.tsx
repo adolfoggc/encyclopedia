@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { knowledgesType } from "./api/route";
+import Link from "next/link";
 
 export default function Home() {
   const [apiData, setApiData] = useState <knowledgesType | null>(null)
@@ -23,8 +24,12 @@ export default function Home() {
       {
         apiData 
         ? 
-        apiData.map(knowledge => (
-          <div key={knowledge.name}>{knowledge.name}</div>
+        apiData.map((knowledge, index) => (
+          <Link href={`/${knowledge.name}`} key={index}>
+            <li key={index}>
+              {knowledge.name}
+            </li>
+          </Link>
         ))
         : <div>Loading...</div>
       }
