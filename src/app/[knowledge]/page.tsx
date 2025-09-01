@@ -4,17 +4,16 @@ import { useEffect } from "react"
 import { knowledgeDataType } from "../api/route";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { dataFetcher } from "@/utils/dataFetcher";
 
 export default function Knowledge() {
   const [knowledgeData, setKnowledgeData] = useState(null) <knowledgeDataType | null>
   const path = usePathname()
   
   useEffect(() => {
-      fetch('http://localhost:8080/api')
-      .then(response => response.json())
+      dataFetcher('http://localhost:8080/api')
       .then(
         data => {
-          //setApiData(data)
           const knowledgeName = getKnowledgeNameFromPath()
           console.log('knowledgeName ->', knowledgeName)
           setKnowledgeData(findKnowledgeByName(knowledgeName, data))
