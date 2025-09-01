@@ -3,17 +3,15 @@
 import { useEffect, useState } from "react";
 import { knowledgesType } from "./api/route";
 import Link from "next/link";
+import { dataFetcher } from "@/utils/dataFetcher";
 
 export default function Home() {
   const [apiData, setApiData] = useState <knowledgesType | null>(null)
 
   useEffect(() =>  {
     console.log('Fetching...');
-    fetch('http://localhost:8080/api')
-      .then(response => response.json())
-      .then(data => {
-        setApiData(data)
-        console.log(data)}
+    dataFetcher('http://localhost:8080/api')
+      .then(data => setApiData(data)
       )
       .catch(error => console.error('Error fetching data:', error));
   }, [])
