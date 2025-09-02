@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { knowledgeDataType, topicType } from "../api/route";
+import { topicType, knowledgeType } from "../api/types";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { dataFetcher } from "@/utils/dataFetcher";
@@ -27,7 +27,7 @@ export default function Knowledge() {
     }, []
   )
 
-  function findTopicsByKnowledge(name: string, data: knowledgeDataType[] | null): topicType[] | null {
+  function findTopicsByKnowledge(name: string, data: knowledgeType[] | null): topicType[] | null {
     if (!data) return null;
     const knowledge = data.find(knowledge => knowledge.name === name)
     if (!knowledge) return null;
