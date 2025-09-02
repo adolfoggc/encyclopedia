@@ -1,11 +1,11 @@
 ## Description
-This is a project that aims to store information I consider relevant to my studies.
+The main objective of this app is to train my React Skills and use as many feats as possible as an portifolio of my studies. 
 
-I will use as many feats as possible that contribute to this project.
-
-I will purposefully not use a database, as I may wish to have this information anywhere.
+Also, this is a project aims to store information I consider relevant to my studies.
 
 No information stored here is definitive, as knowledge is built over time and through experience.
+
+I will purposefully not use a database just to have an "always ready" application
 
 ### Feats Applied
 
@@ -18,10 +18,9 @@ No information stored here is definitive, as knowledge is built over time and th
 
 ## Information
 
-- react: 19.1.0
-- next: 15.5.2
+- React 19.1.0
+- Next 15.5.2 using App Router
 - Runs on port 8080 when started using **yarn dev**
-- App Router
 
 ## Knowledges
 
