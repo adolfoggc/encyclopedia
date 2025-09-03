@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 import { knowledgeType } from "./api/types";
 import Link from "next/link";
-import { dataFetcher } from "@/utils/dataFetcher";
+import { getFetcher } from "@/utils/dataFetcher";
 
 export default function Home() {
   const [apiData, setApiData] = useState <knowledgeType[] | null>(null)
 
   useEffect(() =>  {
-    dataFetcher('http://localhost:8080/api')
+    getFetcher('http://localhost:8080/api')
       .then(data => setApiData(data)
       )
       .catch(error => console.error('Error fetching data:', error));
   }, [])
-  
+
   return(
     <>
       <div>Home</div>
