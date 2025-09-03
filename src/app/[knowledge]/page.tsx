@@ -4,14 +4,15 @@ import { useEffect } from "react"
 import { topicType, knowledgeType } from "../api/types";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { dataFetcher } from "@/utils/dataFetcher";
+import { getFetcher } from "@/utils/dataFetcher";
+import Link from "next/link";
 
 export default function Knowledge() {
   const [topics, setTopics] = useState <topicType[] | null> (null) 
   const path = usePathname()
   
   useEffect(() => {
-      dataFetcher('http://localhost:8080/api')
+      getFetcher('http://localhost:8080/api')
       .then(
         data => {
           const knowledgeName = getKnowledgeNameFromPath()
@@ -44,9 +45,9 @@ export default function Knowledge() {
     else 
       return(
         topics.map((topic: topicType, index: number) => (
-          <div key={index}>
+          <Link key={index} href={`${path}/${topic.name}`}>
             <li>{topic.name}</li>
-          </div>
+          </Link>
         )
       )
     )
