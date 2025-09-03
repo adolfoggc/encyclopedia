@@ -12,3 +12,8 @@ export type tipType = {
   text: string,
   related?: string[]
 }
+
+export type requestBodyType = {
+  knowledge: string | null,
+  topic?: string | null
+}
