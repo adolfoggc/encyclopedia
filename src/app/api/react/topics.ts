@@ -1,9 +1,13 @@
 import { topicType } from "../types";
-import { functionTips } from "./tips";
+import { functionTips, renderingTips } from "./tips";
 
 export const reactTopics: topicType[] = [
   {
     name: "Functions",
     tips: functionTips
+  },
+  {
+    name: "Rendering",
+    tips: renderingTips
   }
 ];
