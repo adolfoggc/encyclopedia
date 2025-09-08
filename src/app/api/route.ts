@@ -7,21 +7,13 @@ export async function GET() {
 }
 
 function filterKnowledge(requestedKnowledge: string) {
-  const knowledge: knowledgeType[] | [] = knowledges.find(k => k.name === requestedKnowledge);
-
-  if (!knowledge || knowledge.length === 0) {
-    return NextResponse.json({ error: 'Knowledge not found' }, { status: 404 });
-  }
+  const knowledge: knowledgeType | undefined = knowledges.find(k => k.name === requestedKnowledge);
 
   return knowledge;
 }
 
 function filterTopic(knowledge: knowledgeType, requestedTopic: string) {
-  const topic: topicType[] | [] = knowledge.topics.find(t => t.name === requestedTopic);
-
-  if (!topic || topic.length === 0) {
-    return NextResponse.json({ error: 'Topic not found in the specified knowledge' }, { status: 404 });
-  }
+  const topic: topicType | undefined = knowledge.topics.find(t => t.name === requestedTopic);
 
   return topic;
 }
@@ -34,7 +26,15 @@ export async function POST(request: Request) {
   }
 
   const knowledge = filterKnowledge(requestBody.knowledge);
+  if (!knowledge) {
+    return NextResponse.json({ error: 'Knowledge not found' }, { status: 404 });
+  }
+
   const topic = filterTopic(knowledge, requestBody.topic);
+
+  if (!topic) {
+    return NextResponse.json({ error: 'Topic not found in the specified knowledge' }, { status: 404 });
+  }
 
   return NextResponse.json( topic.tips );
 }
