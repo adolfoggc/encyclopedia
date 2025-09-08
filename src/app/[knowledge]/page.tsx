@@ -45,7 +45,7 @@ export default function Knowledge() {
     else 
       return(
         topics.map((topic: topicType, index: number) => (
-          <Link key={index} href={`${path}/${topic.name}`}>
+          <Link key={`topic-${index}`} href={`${path}/${topic.name}`}>
             <li>{topic.name}</li>
           </Link>
         )
